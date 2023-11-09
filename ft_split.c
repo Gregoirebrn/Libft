@@ -3,29 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: grebrune <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: grebrune <grebrune@sutdent.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 11:56:26 by grebrune          #+#    #+#             */
-/*   Updated: 2023/09/28 13:31:37 by grebrune         ###   ########.fr       */
+/*   Updated: 2023/11/08 19:04:36 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdlib.h>
 
-int	ft_charcmp(char c, char *charset)
+int	ft_charcmp(char s, char c)
 {
-	int	i;
-
-	i = 0;
-	while (charset[i])
-	{
-		if (c == charset[i])
-			return (1);
-		i++;
-	}
+	if (s == c)
+		return (1);
 	return (0);
 }
 
-void	ft_strncpy(char *src, char *dest, int n)
+void	ft_strncpy(const char *src, char *dest, int n)
 {
 	int	i;
 
@@ -38,7 +31,7 @@ void	ft_strncpy(char *src, char *dest, int n)
 	dest[i] = '\0';
 }
 
-int	ft_strlen(char *str, char *charset)
+int	ft_strlen(const char *str, char c)
 {
 	int	i;
 	int	wds;
@@ -47,11 +40,11 @@ int	ft_strlen(char *str, char *charset)
 	i = 0;
 	while (str[i])
 	{
-		if (ft_charcmp(str[i], charset) == 0)
+		if (ft_charcmp(str[i], c) == 0)
 		{
 			wds++;
 			i++;
-			while (ft_charcmp(str[i], charset) == 0 && str[i])
+			while (ft_charcmp(str[i], c) == 0 && str[i])
 				i++;
 		}
 		else
@@ -60,7 +53,7 @@ int	ft_strlen(char *str, char *charset)
 	return (wds);
 }
 
-char	**ft_split(char *str, char *charset)
+char	**ft_split(char const *s, char c)
 {
 	int		x;
 	int		i;
@@ -69,17 +62,17 @@ char	**ft_split(char *str, char *charset)
 
 	x = 0;
 	i = 0;
-	size = ft_strlen(str, charset);
+	size = ft_strlen(s, c);
 	tab = malloc(sizeof(char *) * (size + 1));
-	while (str[i])
+	while (s[i])
 	{
 		size = i;
-		if (ft_charcmp(str[i], charset) == 0)
+		if (ft_charcmp(s[i], c) == 0)
 		{
-			while (str[size] && ft_charcmp(str[size], charset) == 0)
+			while (s[size] && ft_charcmp(s[size], c) == 0)
 				size++;
 			tab[x] = malloc(sizeof(char) * (size - i + 1));
-			ft_strncpy(&str[i], tab[x++], size - i);
+			ft_strncpy(&s[i], tab[x++], size - i);
 			i = size;
 		}
 		else

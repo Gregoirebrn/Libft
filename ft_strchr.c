@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: grebrune <grebrune@sutdent.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/14 17:39:16 by grebrune          #+#    #+#             */
-/*   Updated: 2023/11/08 16:33:04 by grebrune         ###   ########.fr       */
+/*   Created: 2023/11/08 19:08:35 by grebrune          #+#    #+#             */
+/*   Updated: 2023/11/08 19:09:45 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	ft_putstr_fd(char *s, int fd)
+char	*strchr(const char *s, int c)
 {
-	while (s && *s)
-		write(fd, s++, 1);
-}
-/*
-int	main()
-{
+	int	i;
 
-	int fd = open("test.txt", O_WRONLY);
-	char *str = NULL;
-	ft_putstr_fd(str, fd);
-	printf("\n%s\n", str);
-	return (0);
+	i = 0;
+	while (s[i])
+	{
+		if (s[i] == c)
+			return ((char *)s + i);
+	}
+	return ((char *)s + i);
 }
-*/

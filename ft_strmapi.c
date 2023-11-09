@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: grebrune <grebrune@sutdent.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/14 17:39:16 by grebrune          #+#    #+#             */
-/*   Updated: 2023/11/08 16:33:04 by grebrune         ###   ########.fr       */
+/*   Created: 2023/11/08 15:29:05 by grebrune          #+#    #+#             */
+/*   Updated: 2023/11/08 15:32:40 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	while (s && *s)
-		write(fd, s++, 1);
-}
-/*
-int	main()
-{
+	char				*dst;
+	unsigned int		i;
+	unsigned int		size;
 
-	int fd = open("test.txt", O_WRONLY);
-	char *str = NULL;
-	ft_putstr_fd(str, fd);
-	printf("\n%s\n", str);
-	return (0);
+	i = 0;
+	while (s[size])
+		size++;
+	dst = malloc(sizeof(char) * size + 1);
+	if (dst == NULL)
+		return (NULL);
+	while (i < size)
+	{
+		dst[i] = (*f)(i, s[i]);
+		i++;
+	}
+	return (dst);
 }
-*/

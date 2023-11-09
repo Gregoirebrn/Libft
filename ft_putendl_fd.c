@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: grebrune <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: grebrune <grebrune@sutdent.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 17:39:16 by grebrune          #+#    #+#             */
-/*   Updated: 2023/09/15 13:18:05 by grebrune         ###   ########.fr       */
+/*   Updated: 2023/11/08 16:42:08 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
 
-void	ft_putstr(char *str)
+void ft_putendl_fd(char *s, int fd)
 {
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
-	{
-		write(1, &str[i], 1);
-		i++;
-	}
+	while (s && *s)
+		write(fd, s++, 1);
+	write(fd, "\n", 1);
 }
 /*
 int	main()
 {
 	char *str = "0123456789";
-	ft_putstr(str);
+	ft_putendl_fd(str, 2);
 	return (0);
-}*/
+}
+*/
