@@ -6,13 +6,13 @@
 /*   By: grebrune <grebrune@sutdent.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/17 22:00:15 by grebrune          #+#    #+#             */
-/*   Updated: 2023/11/08 12:04:13 by grebrune         ###   ########.fr       */
+/*   Updated: 2023/11/09 15:05:01 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 #include <unistd.h>
 
-char	*ft_strstr(const char *big, char *little, size_t len)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	size_t	i;
 	size_t	x;
@@ -26,11 +26,11 @@ char	*ft_strstr(const char *big, char *little, size_t len)
 			x++;
 		}
 		if (little[x] == '\0')
-			return (big + i);
+			return ((char *)big + i);
 		i++;
 	}
 	if (big[0] == '\0' && little[0] == '\0')
-		return (big);
+		return ((char *)big);
 	return (0);
 }
 /*

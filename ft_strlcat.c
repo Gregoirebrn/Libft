@@ -21,6 +21,8 @@ size_t	strlcat(char *dst, const char *src, size_t size)
 
 	x = 0;
 	i = 0;
+	lendst = 0;
+	lensrc = 0;
 	while (src[lensrc])
 		lensrc++;
 	if (size == 0)

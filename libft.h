@@ -5,17 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: grebrune <grebrune@sutdent.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/06 15:56:36 by grebrune          #+#    #+#             */
-/*   Updated: 2023/11/09 12:24:43 by grebrune         ###   ########.fr       */
+/*   Created: 2023/11/09 15:12:08 by grebrune          #+#    #+#             */
+/*   Updated: 2023/11/09 15:16:57 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <stdio.h>
-# include <stdlib.h>
-# include <unistd.h>
+# include </usr/include/stdlib.h>
+# include </usr/include/unistd.h>
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
@@ -35,9 +34,9 @@ char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 
-char	*ft_strstr(const char *big, char *little, size_t len);
+char	*ft_strnstr(const char *big, const char *little, size_t len);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
-char	*strdup(const char *s);
+char	*ft_strdup(const char *s);
 
 char	**ft_split(char const *s, char c);
 char	*ft_itoa(int n);
@@ -49,13 +48,6 @@ void	ft_putendl_fd(char *s, int fd);
 void	ft_putbnr_fd(int n, int fd);
 
 
-
-/*
- *
- * "sudftisdfiusdyf   a s a a" " 	"
- * substr(&str[7], strln &str[7] - 12
- *
- * */
-
+# include </usr/include/stdio.h>
 
 #endif
