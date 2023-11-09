@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: grebrune <grebrune@sutdent.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: grebrune <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 16:49:48 by grebrune          #+#    #+#             */
-/*   Updated: 2023/11/08 18:57:33 by grebrune         ###   ########.fr       */
+/*   Updated: 2023/11/09 22:04:15 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ int	ft_ilen(int *n, int *signe, unsigned int *uni)
 		tmp = tmp / 10;
 		size++;
 	}
+	if (size == 0)
+		size++;
 	if (*n < 0)
 	{
 		*signe = *signe + 1;
@@ -61,7 +63,7 @@ char	*ft_itoa(int n)
 		str[0] = '-';
 	return (str);
 }
-/*
+
 int	main(int ac, char **av)
 {
 	if (ac == 2)
@@ -70,4 +72,4 @@ int	main(int ac, char **av)
 	}
 	else
 		printf("DumDum");
-}*/
+}

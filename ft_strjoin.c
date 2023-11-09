@@ -6,60 +6,43 @@
 /*   By: grebrune <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 12:45:45 by grebrune          #+#    #+#             */
-/*   Updated: 2023/09/26 16:54:22 by grebrune         ###   ########.fr       */
+/*   Updated: 2023/11/09 21:48:19 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strcpy(int *y, char *src, char *dest)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int	i;
+	char	*join;
+	size_t	len;
+	size_t	i;
+	size_t	x;
 
+	x = 0;
 	i = 0;
-	while (src[i])
+	len = ft_strlen(s1);
+	join = malloc(sizeof(char) * (len + ft_strlen(s2) + 1));
+	if (join == NULL)
+		return (join);
+	while (i < len)
 	{
-		dest[*y] = src[i];
-		i++;
-		*y += 1;
-	}
-	return (*y);
-}
-
-char	*ft_strjoin(int size, char **strs, char *sep)
-{
-	int		i;
-	int		len;
-	char	*strj;
-	int		y;
-
-	i = 0;
-	len = (size - 1) * ft_strlen(sep);
-	while (strs[i])
-		len += ft_strlen(strs[i++]);
-	strj = malloc(sizeof(char) * (len + 1));
-	if (strj == NULL)
-		return (strj);
-	i = 0;
-	y = 0;
-	if (size == 0)
-		return (strj);
-	while (i < size)
-	{
-		ft_strcpy(&y, strs[i], strj);
-		if (i < size - 1)
-			ft_strcpy(&y, sep, strj);
+		join[i] = s1[i];
 		i++;
 	}
-	strj[y] = '\0';
-	return (strj);
+	len += ft_strlen(s2);
+	while (i < len)
+	{
+		join[i] = s2[x];
+		i++;
+		x++;
+	}
+	join[i] = '\0';
+	return (join);
 }
 /*
-int	main(int argc, char **argv)
+int	main(int ac, char **av)
 {
-	char	*strj;
-
-	printf("%s\n", strj = ft_strjoin(argc, argv, "U"));
-	free (strj);
-}
-*/
+	ac = 0;
+	printf("%s\n", ft_strjoin(av[1], av[2]));
+}*/

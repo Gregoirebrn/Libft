@@ -6,16 +6,19 @@
 /*   By: grebrune <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 18:52:01 by grebrune          #+#    #+#             */
-/*   Updated: 2023/11/09 18:52:05 by grebrune         ###   ########.fr       */
+/*   Updated: 2023/11/09 21:03:14 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*calloc(size_t nmemb, size_t size)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void	*mal;
 
-	mal
+	mal = malloc(nmemb * size);
+	if (mal == NULL)
+		return (mal);
+	ft_bzero(mal, size);
 	return (mal);
 }
