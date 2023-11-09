@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: grebrune <grebrune@sutdent.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: grebrune <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 11:56:26 by grebrune          #+#    #+#             */
-/*   Updated: 2023/11/08 19:04:36 by grebrune         ###   ########.fr       */
+/*   Updated: 2023/11/09 17:48:09 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdlib.h>
@@ -31,7 +31,7 @@ void	ft_strncpy(const char *src, char *dest, int n)
 	dest[i] = '\0';
 }
 
-int	ft_strlen(const char *str, char c)
+int	ft_countwds(const char *str, char c)
 {
 	int	i;
 	int	wds;
@@ -62,7 +62,7 @@ char	**ft_split(char const *s, char c)
 
 	x = 0;
 	i = 0;
-	size = ft_strlen(s, c);
+	size = ft_countwds(s, c);
 	tab = malloc(sizeof(char *) * (size + 1));
 	while (s[i])
 	{

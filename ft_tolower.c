@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-int	tolower(int c)
+int	ft_tolower(int c)
 {
 	c += 32;
 	return (c);

@@ -9,18 +9,8 @@
 /*   Updated: 2023/09/26 16:54:22 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
-#include <stdlib.h>
 
-int	ft_strlen(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
+#include "libft.h"
 
 int	ft_strcpy(int *y, char *src, char *dest)
 {

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: grebrune <grebrune@sutdent.42lyon.fr>      +#+  +:+       +#+         #
+#    By: grebrune <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/07 16:45:45 by grebrune          #+#    #+#              #
-#    Updated: 2023/11/09 14:59:43 by grebrune         ###   ########.fr        #
+#    Updated: 2023/11/09 19:08:52 by grebrune         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,12 +43,15 @@ SRCS		:=	\
 				ft_tolower.c\
 				ft_toupper.c\
 
+SRCS_D		:=	#
 
-OBJS_D		:=	objs/
+OBJS_D		:=	#objs/
 
 OBJS		:=	$(SRCS:%.c=$(OBJS_D)%.o)
 
 HEAD		:=	libft.h
+
+HEAD_D		:=	.
 
 CFLAGS		:=	-Wall -Wextra -Werror -g3 #-fsanitize=address
 
@@ -62,7 +65,7 @@ $(NAME)		:	$(OBJS_D) $(OBJS) Makefile #retirer pour push
 				$(AR) $(CLFAGS) -o $(NAME) $(OBJS)
 
 $(OBJS)		:	$(OBJS_D)%.o: $(SRCS_D)%.c $(HEAD)
-				$(CC) $(CFLAGS) -I$(HEAD) -c $< -o $@
+				$(CC) $(CFLAGS) -I$(HEAD_D) -c $< -o $@
 $(OBJS_D)	:
 				@mkdir -p $(OBJS_D)
 

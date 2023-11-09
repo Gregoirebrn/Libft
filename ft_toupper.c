@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: grebrune <grebrune@sutdent.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: grebrune <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 18:50:36 by grebrune          #+#    #+#             */
-/*   Updated: 2023/11/07 18:52:43 by grebrune         ###   ########.fr       */
+/*   Updated: 2023/11/09 16:48:35 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	toupper(int c)
+int	ft_toupper(int c)
 {
 	c -= 32;
 	return (c);

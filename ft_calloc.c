@@ -1,17 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: grebrune <grebrune@sutdent.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: grebrune <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/13 13:24:17 by grebrune          #+#    #+#             */
-/*   Updated: 2023/11/08 15:18:13 by grebrune         ###   ########.fr       */
+/*   Created: 2023/11/09 18:52:01 by grebrune          #+#    #+#             */
+/*   Updated: 2023/11/09 18:52:05 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <unistd.h>
 
-void	ft_putchar_fd(char c, int fd)
+#include "libft.h"
+
+void	*calloc(size_t nmemb, size_t size)
 {
-	write(fd, &c, 1);
+	void	*mal;
+
+	mal
+	return (mal);
 }

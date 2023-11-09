@@ -3,7 +3,7 @@
 
 *.idea
 *.vscode
-libft.a
+*libft.a
 
 *main
 *main.c
