@@ -4,3 +4,8 @@
 *.idea
 *.vscode
 libft.a
+
+*main
+*main.c
+
+*a.out
