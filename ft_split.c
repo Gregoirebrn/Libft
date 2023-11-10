@@ -6,17 +6,10 @@
 /*   By: grebrune <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 11:56:26 by grebrune          #+#    #+#             */
-/*   Updated: 2023/11/09 17:48:09 by grebrune         ###   ########.fr       */
+/*   Updated: 2023/11/10 18:26:51 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdlib.h>
-
-int	ft_charcmp(char s, char c)
-{
-	if (s == c)
-		return (1);
-	return (0);
-}
 
 void	ft_strncpy(const char *src, char *dest, int n)
 {
@@ -53,6 +46,20 @@ int	ft_countwds(const char *str, char c)
 	return (wds);
 }
 
+char	**ft_clean(char **tab, int x)
+{
+	int	i;
+
+	i = 0;
+	if (x == 0)
+		return (tab);
+	while (0 < x)
+	{
+		free(tab[i]);
+		x--;
+	}
+}
+
 char	**ft_split(char const *s, char c)
 {
 	int		x;
@@ -64,24 +71,25 @@ char	**ft_split(char const *s, char c)
 	i = 0;
 	size = ft_countwds(s, c);
 	tab = malloc(sizeof(char *) * (size + 1));
+	if (tab == NULL)
+		return (ft_clean(tab, 0));
 	while (s[i])
 	{
-		size = i;
-		if (ft_charcmp(s[i], c) == 0)
+		if (s[i] == c)
 		{
-			while (s[size] && ft_charcmp(s[size], c) == 0)
-				size++;
 			tab[x] = malloc(sizeof(char) * (size - i + 1));
+			if (tab == NULL)
+				return (ft_clean(tab, x));
 			ft_strncpy(&s[i], tab[x++], size - i);
-			i = size;
 		}
 		else
 			i++;
+		size = i;
 	}
 	tab[x] = NULL;
 	return (tab);
 }
-/*
+
 #include <stdio.h>
 
 int	main(int ac, char **av)
@@ -89,7 +97,7 @@ int	main(int ac, char **av)
 	int	i;
 	char	**tab;
 	
-	tab = ft_split(av[1], av[2]);
+	tab = ft_split(av[1], av[2][0]);
 	ac = 0;
 	i = 0;
 	while (tab[i])
@@ -99,4 +107,3 @@ int	main(int ac, char **av)
 	}
 	return (0);
 }
-*/
