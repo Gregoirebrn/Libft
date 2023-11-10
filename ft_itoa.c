@@ -64,6 +64,7 @@ char	*ft_itoa(int n)
 	return (str);
 }
 
+/*
 int	main(int ac, char **av)
 {
 	if (ac == 2)
@@ -73,3 +74,4 @@ int	main(int ac, char **av)
 	else
 		printf("DumDum");
 }
+*/
