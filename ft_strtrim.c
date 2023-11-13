@@ -6,7 +6,7 @@
 /*   By: grebrune <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 21:58:07 by grebrune          #+#    #+#             */
-/*   Updated: 2023/11/10 15:42:55 by grebrune         ###   ########.fr       */
+/*   Updated: 2023/11/13 13:42:37 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,16 @@ int	ft_strcmp(char const *set, char c)
 	return (-1);
 }
 
-size_t	ft_strend(char const *s1, char const *set)
+size_t	ft_strend(char const *s1, char const *set, size_t start)
 {
 	size_t	end;
 
 	end = ft_strlen(s1);
-	while (((char *)s1)[--end])
+	while (end > start)
 	{
-		if (ft_strcmp(set, s1[end]) == -1)
+		if (ft_strcmp(set, s1[end - 1]) == -1)
 			return (end);
+		end--;
 	}
 	return (end);
 }
@@ -54,40 +55,40 @@ size_t	ft_strstart(char const *s1, char const *set)
 	return (start);
 }
 
-char	*ft_strtrim(char const *s1, char const *set)
+char	*ft_strldup(char const *s1, size_t len)
 {
-	size_t		start;
-	size_t		end;
-	size_t		i;
-	char		*trim;
+	char	*trim;
+	size_t	i;
 
-	if (set == NULL)
-		return ((char *)s1);
-	end = ft_strend(s1, set);
-	if (end == 0)
-		return ((char *)s1);
-	start = ft_strstart(s1, set);
-	trim = malloc(sizeof(char) * (end - start + 2));
+	trim = malloc(sizeof(char) * (len + 1));
 	if (trim == NULL)
 		return (trim);
 	i = 0;
-	while (start <= end)
+	while (i < len)
 	{
-		trim[i] = s1[start];
+		trim[i] = s1[i];
 		i++;
-		start++;
 	}
 	trim[i] = '\0';
 	return (trim);
 }
-/*
-int main(void)
-{
-	printf("start=%d\n", start);
-	printf("end=%d\n", end);
-	char *s1 = "  \t \t \n   \n\n\n\t";
-	char *s2 = "";
 
-	printf("fak1=%s\n", ft_strtrim(s1, "1"));
-	printf("fak2=%s\n", ft_strtrim(s2, "1"));
-}*/
+char	*ft_strtrim(char const *s1, char const *set)
+{
+	size_t		start;
+	size_t		end;
+	char		*trim;
+
+	start = ft_strstart(s1, set);
+	end = ft_strend(s1, set, start);
+	trim = ft_strldup(&((char *)s1)[start], end - start);
+	return (trim);
+}
+/*
+int	main(void)
+{
+	char	*s1 = "  \t \t \n   \n\n\n\t";
+
+	printf("fak1=%s\n", ft_strtrim(s1, " \n\t"));
+}
+*/

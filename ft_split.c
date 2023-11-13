@@ -6,7 +6,7 @@
 /*   By: grebrune <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 11:56:26 by grebrune          #+#    #+#             */
-/*   Updated: 2023/11/10 18:26:51 by grebrune         ###   ########.fr       */
+/*   Updated: 2023/11/13 10:04:29 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdlib.h>
@@ -33,11 +33,11 @@ int	ft_countwds(const char *str, char c)
 	i = 0;
 	while (str[i])
 	{
-		if (ft_charcmp(str[i], c) == 0)
+		if (str[i] != c)
 		{
 			wds++;
 			i++;
-			while (ft_charcmp(str[i], c) == 0 && str[i])
+			while (str[i] != c && str[i])
 				i++;
 		}
 		else
@@ -58,38 +58,50 @@ char	**ft_clean(char **tab, int x)
 		free(tab[i]);
 		x--;
 	}
+	return (tab);
 }
 
-char	**ft_split(char const *s, char c)
+char	**ft_filltab(char const *s, char **tab, char c)
 {
-	int		x;
-	int		i;
-	int		size;
-	char	**tab;
+	int	i;
+	int	size;
+	int	x;
 
 	x = 0;
+	size = 0;
 	i = 0;
-	size = ft_countwds(s, c);
-	tab = malloc(sizeof(char *) * (size + 1));
-	if (tab == NULL)
-		return (ft_clean(tab, 0));
 	while (s[i])
 	{
-		if (s[i] == c)
+		if (s[i] != c)
 		{
-			tab[x] = malloc(sizeof(char) * (size - i + 1));
+			size = i;
+			while (s[i] != c && s[i])
+				i++;
+			tab[x] = malloc(sizeof(char) * (i - size + 1));
 			if (tab == NULL)
 				return (ft_clean(tab, x));
-			ft_strncpy(&s[i], tab[x++], size - i);
+			ft_strncpy(&s[size], tab[x++], i - size);
 		}
 		else
 			i++;
-		size = i;
 	}
 	tab[x] = NULL;
 	return (tab);
 }
 
+char	**ft_split(char const *s, char c)
+{
+	int		size;
+	char	**tab;
+
+	size = ft_countwds(s, c);
+	tab = malloc(sizeof(char *) * (size + 1));
+	if (tab == NULL)
+		return (ft_clean(tab, 0));
+	ft_filltab(s, tab, c);
+	return (tab);
+}
+/*
 #include <stdio.h>
 
 int	main(int ac, char **av)
@@ -106,4 +118,4 @@ int	main(int ac, char **av)
 		i++;
 	}
 	return (0);
-}
+}*/
