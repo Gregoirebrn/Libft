@@ -46,11 +46,23 @@ SRCS		:=	\
 				ft_tolower.c\
 				ft_toupper.c\
 
+SRC_B		:=	\
+				ft_lstnew\
+				ft_lstadd_front\
+				ft_lstsize\
+				ft_lstlast\
+				ft_lstdelone\
+				ft_lstclear\
+				ft_lstiter\
+				ft_lstmap\
+
 SRCS_D		:=	#
 
 OBJS_D		:=	#objs/
 
 OBJS		:=	$(SRCS:%.c=$(OBJS_D)%.o)
+
+OBJS_B		:=	$(SRC_B:%.c=$(OBJS_B)%.o)
 
 HEAD		:=	libft.h
 
@@ -63,6 +75,9 @@ AR			:=	ar rcs #verifier si s autorise
 NAME		:=	libft.a
 
 all			:	$(NAME)
+
+bonus		:	$(OBJS_B)
+				$(AR) $(CLFAGS) -o $(NAME) $(OBJS)
 
 $(NAME)		:	$(OBJS_D) $(OBJS) Makefile #retirer pour push
 				$(AR) $(CLFAGS) -o $(NAME) $(OBJS)

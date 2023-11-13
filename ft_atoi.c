@@ -6,7 +6,7 @@
 /*   By: grebrune <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 18:40:56 by grebrune          #+#    #+#             */
-/*   Updated: 2023/11/09 17:19:25 by grebrune         ###   ########.fr       */
+/*   Updated: 2023/11/13 15:49:20 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,7 @@ int	main(int ac, char **av)
 {
 	if (ac == 2)
 	{
-		printf("my atoi = %d\n", ft_atoi(av[1]));
-		printf("te atoi = %d\n", atoi(av[1]));
+		printf("fake= %d\n", ft_atoi(av[1]));
+		printf("reel= %d\n", atoi(av[1]));
 	}
-}
-*/
+}*/
