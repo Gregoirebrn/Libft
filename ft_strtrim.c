@@ -6,7 +6,7 @@
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 21:58:07 by grebrune          #+#    #+#             */
-/*   Updated: 2023/11/14 16:59:56 by grebrune         ###   ########.fr       */
+/*   Updated: 2023/11/14 17:02:41 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t		end;
 	char		*trim;
 
+	if (!s1 || !set)
+		return (NULL);
 	start = ft_strstart(s1, set);
 	end = ft_strend(s1, set, start);
 	trim = ft_strldup(&((char *)s1)[start], end - start);

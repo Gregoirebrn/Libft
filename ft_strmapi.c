@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: grebrune <grebrune@sutdent.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 15:29:05 by grebrune          #+#    #+#             */
-/*   Updated: 2023/11/08 15:32:40 by grebrune         ###   ########.fr       */
+/*   Updated: 2023/11/14 17:22:13 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
@@ -17,6 +18,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	unsigned int		i;
 	unsigned int		size;
 
+	if (!s)
+		return (NULL);
 	i = 0;
 	size = 0;
 	while (s[size])

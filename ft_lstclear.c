@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: grebrune <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 11:37:25 by grebrune          #+#    #+#             */
-/*   Updated: 2023/11/14 14:27:58 by grebrune         ###   ########.fr       */
+/*   Updated: 2023/11/14 17:18:34 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
 	t_list	*head;
 
-	if (lst == NULL)
+	if (!lst || !del)
 		return ;
 	while ((*lst) != NULL)
 	{

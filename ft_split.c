@@ -6,9 +6,10 @@
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 11:56:26 by grebrune          #+#    #+#             */
-/*   Updated: 2023/11/14 16:18:43 by grebrune         ###   ########.fr       */
+/*   Updated: 2023/11/14 16:58:04 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include <stdlib.h>
 
 static void	ft_strncpy(const char *src, char *dest, int n)

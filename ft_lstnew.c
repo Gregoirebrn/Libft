@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: grebrune <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 15:16:56 by grebrune          #+#    #+#             */
-/*   Updated: 2023/11/13 15:24:06 by grebrune         ###   ########.fr       */
+/*   Updated: 2023/11/14 17:18:45 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ t_list	*ft_lstnew(void *content)
 {
 	t_list	*new;
 
+	if (!content)
+		return (NULL);
 	new = malloc(sizeof(t_list));
 	if (new == NULL)
 		return (new);

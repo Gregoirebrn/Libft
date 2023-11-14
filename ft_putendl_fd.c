@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: grebrune <grebrune@sutdent.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 17:39:16 by grebrune          #+#    #+#             */
-/*   Updated: 2023/11/08 16:42:08 by grebrune         ###   ########.fr       */
+/*   Updated: 2023/11/14 17:21:22 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include <unistd.h>
 
 void	ft_putendl_fd(char *s, int fd)
