@@ -6,7 +6,7 @@
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 11:37:25 by grebrune          #+#    #+#             */
-/*   Updated: 2023/11/14 17:18:34 by grebrune         ###   ########.fr       */
+/*   Updated: 2023/11/14 17:37:55 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
 	t_list	*head;
 
-	if (!lst || !del)
+	if (lst == NULL || !del)
 		return ;
 	while ((*lst) != NULL)
 	{

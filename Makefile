@@ -6,7 +6,7 @@
 #    By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/07 16:45:45 by grebrune          #+#    #+#              #
-#    Updated: 2023/11/14 17:22:59 by grebrune         ###   ########.fr        #
+#    Updated: 2023/11/14 18:14:15 by grebrune         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,32 +59,33 @@ SRC_B		:=	\
 
 SRCS_D		:=	#
 
-OBJS_D		:=	#objs/
+OBJS_D		:=	objs/
 
 OBJS		:=	$(SRCS:%.c=$(OBJS_D)%.o)
 
-OBJS_B		:=	$(SRC_B:%.c=$(OBJS_B)%.o) $(SRCS:%.c=$(OBJS_D)%.o)
+OBJS_B		:=	$(SRC_B:%.c=$(OBJS_D)%.o)
 
 HEAD		:=	libft.h
 
 HEAD_D		:=	.
 
-CFLAGS		:=	-Wall -Wextra -Werror -g3 #-fsanitize=address
+CFLAGS		:=	-Wall -Wextra -Werror
 
-AR			:=	ar rcs #verifier si s autorise
+AR			:=	ar rcs
 
 NAME		:=	libft.a
 
 all			:	$(NAME)
 
-bonus		:	$(OBJS_B) Makefile
-				$(AR) $(CLFAGS) -o $(NAME) $(OBJS_B)
+bonus		:
+				@make SRCS="$(SRCS) $(SRC_B)"
 
-$(NAME)		:	$(OBJS_D) $(OBJS) Makefile #retirer pour push
+$(NAME)		:	$(OBJS_D) $(OBJS) Makefile
 				$(AR) $(CLFAGS) -o $(NAME) $(OBJS)
 
 $(OBJS)		:	$(OBJS_D)%.o: $(SRCS_D)%.c $(HEAD)
 				$(CC) $(CFLAGS) -I$(HEAD_D) -c $< -o $@
+
 $(OBJS_D)	:
 				@mkdir -p $(OBJS_D)
 

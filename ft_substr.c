@@ -6,7 +6,7 @@
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 13:19:18 by grebrune          #+#    #+#             */
-/*   Updated: 2023/11/14 17:22:34 by grebrune         ###   ########.fr       */
+/*   Updated: 2023/11/14 17:26:27 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t		j;
 	char		*new;
 
-	if (!s || !start || !len)
+	if (!s)
 		return (NULL);
 	i = 0;
 	while ((unsigned char)s[i] && i != start)
