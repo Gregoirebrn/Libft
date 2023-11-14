@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: grebrune <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/13 16:17:42 by grebrune          #+#    #+#             */
-/*   Updated: 2023/11/14 13:24:42 by grebrune         ###   ########.fr       */
+/*   Created: 2023/11/14 13:14:15 by grebrune          #+#    #+#             */
+/*   Updated: 2023/11/14 13:16:34 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstlast(t_list *lst)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	if (lst == NULL)
-		return (NULL);
-	while (lst->next != NULL)
+	while (lst != NULL)
+	{
+		f(lst->content);
 		lst = lst->next;
-	return (lst);
+	}
 }

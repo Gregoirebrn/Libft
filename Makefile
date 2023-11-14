@@ -6,7 +6,7 @@
 #    By: grebrune <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/07 16:45:45 by grebrune          #+#    #+#              #
-#    Updated: 2023/11/10 14:22:01 by grebrune         ###   ########.fr        #
+#    Updated: 2023/11/14 13:59:06 by grebrune         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,14 +47,15 @@ SRCS		:=	\
 				ft_toupper.c\
 
 SRC_B		:=	\
-				ft_lstnew\
-				ft_lstadd_front\
-				ft_lstsize\
-				ft_lstlast\
-				ft_lstdelone\
-				ft_lstclear\
-				ft_lstiter\
-				ft_lstmap\
+				ft_lstnew.c\
+				ft_lstadd_front.c\
+				ft_lstsize.c\
+				ft_lstlast.c\
+				ft_lstadd_back.c\
+				ft_lstdelone.c\
+				ft_lstclear.c\
+				ft_lstiter.c\
+				ft_lstmap.c\
 
 SRCS_D		:=	#
 
@@ -62,7 +63,7 @@ OBJS_D		:=	#objs/
 
 OBJS		:=	$(SRCS:%.c=$(OBJS_D)%.o)
 
-OBJS_B		:=	$(SRC_B:%.c=$(OBJS_B)%.o)
+OBJS_B		:=	$(SRC_B:%.c=$(OBJS_B)%.o) $(SRCS:%.c=$(OBJS_D)%.o)
 
 HEAD		:=	libft.h
 
@@ -76,8 +77,8 @@ NAME		:=	libft.a
 
 all			:	$(NAME)
 
-bonus		:	$(OBJS_B)
-				$(AR) $(CLFAGS) -o $(NAME) $(OBJS)
+bonus		:	$(OBJS_B) Makefile
+				$(AR) $(CLFAGS) -o $(NAME) $(OBJS_B)
 
 $(NAME)		:	$(OBJS_D) $(OBJS) Makefile #retirer pour push
 				$(AR) $(CLFAGS) -o $(NAME) $(OBJS)
@@ -88,12 +89,12 @@ $(OBJS_D)	:
 				@mkdir -p $(OBJS_D)
 
 clean		:
-				$(RM) -r $(OBJS) $(OBJS_D)
+				$(RM) -r $(OBJS) $(OBJS_D) $(OBJS_B)
 
 fclean		:	clean
-				$(RM) $(NAME) $(OBJS)
+				$(RM) $(NAME)
 
 re			:	fclean all
 
 
-.PHONY: all clean fclean re
+.PHONY: all bonus clean fclean re
