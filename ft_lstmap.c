@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: grebrune <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/14 13:16:54 by grebrune          #+#    #+#             */
-/*   Updated: 2023/11/14 13:58:23 by grebrune         ###   ########.fr       */
+/*   Created: 2023/11/14 15:44:18 by grebrune          #+#    #+#             */
+/*   Updated: 2023/11/14 16:34:09 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,23 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*new;
 	t_list	*head;
-	t_list	*new_lst;
 	void	*content;
 
-	new = lst;
+	head = NULL;
+	if (!lst || !f || !del)
+		return (NULL);
 	while (lst != NULL)
 	{
-		ft_lstnew(f(lst->content));
-		if (new->content == NULL)
+		content = f(lst->content);
+		new = ft_lstnew(content);
+		if (new == NULL)
 		{
-			ft_lstclear(new, del);
-			ft_lstclear(new, del);
+			del(content);
+			ft_lstclear(&head, del);
 			return (NULL);
 		}
-		head = lst->next;
-		ft_lstdelone(lst, del);
-		lst = head;
+		ft_lstadd_back(&head, new);
+		lst = lst->next;
 	}
-	return (new);
+	return (head);
 }

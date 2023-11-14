@@ -63,15 +63,3 @@ char	*ft_itoa(int n)
 		str[0] = '-';
 	return (str);
 }
-
-/*
-int	main(int ac, char **av)
-{
-	if (ac == 2)
-	{
-		printf("%s\n", ft_itoa(atoi(av[1])));
-	}
-	else
-		printf("DumDum");
-}
-*/

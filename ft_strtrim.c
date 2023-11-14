@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: grebrune <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 21:58:07 by grebrune          #+#    #+#             */
-/*   Updated: 2023/11/13 13:42:37 by grebrune         ###   ########.fr       */
+/*   Updated: 2023/11/14 16:59:56 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strcmp(char const *set, char c)
+static int	ft_strcmp(char const *set, char c)
 {
 	int	i;
 
@@ -27,7 +27,7 @@ int	ft_strcmp(char const *set, char c)
 	return (-1);
 }
 
-size_t	ft_strend(char const *s1, char const *set, size_t start)
+static size_t	ft_strend(char const *s1, char const *set, size_t start)
 {
 	size_t	end;
 
@@ -41,7 +41,7 @@ size_t	ft_strend(char const *s1, char const *set, size_t start)
 	return (end);
 }
 
-size_t	ft_strstart(char const *s1, char const *set)
+static size_t	ft_strstart(char const *s1, char const *set)
 {
 	size_t	start;
 
@@ -55,7 +55,7 @@ size_t	ft_strstart(char const *s1, char const *set)
 	return (start);
 }
 
-char	*ft_strldup(char const *s1, size_t len)
+static char	*ft_strldup(char const *s1, size_t len)
 {
 	char	*trim;
 	size_t	i;
@@ -84,11 +84,3 @@ char	*ft_strtrim(char const *s1, char const *set)
 	trim = ft_strldup(&((char *)s1)[start], end - start);
 	return (trim);
 }
-/*
-int	main(void)
-{
-	char	*s1 = "  \t \t \n   \n\n\n\t";
-
-	printf("fak1=%s\n", ft_strtrim(s1, " \n\t"));
-}
-*/

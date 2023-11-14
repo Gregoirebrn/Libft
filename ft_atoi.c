@@ -34,15 +34,3 @@ int	ft_atoi(const char *nptr)
 	}
 	return (res * signe);
 }
-/*
-#include <stdlib.h>
-#include <stdio.h>
-
-int	main(int ac, char **av)
-{
-	if (ac == 2)
-	{
-		printf("fake= %d\n", ft_atoi(av[1]));
-		printf("reel= %d\n", atoi(av[1]));
-	}
-}*/

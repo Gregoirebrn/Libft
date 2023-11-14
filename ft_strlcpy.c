@@ -32,20 +32,3 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 		len_src++;
 	return (len_src);
 }
-/*
-#include <stdio.h>
-#include <string.h>
-
-int	main()
-{
-	char	src[] = "iurbwhf";
-	char	dest[70];
-	char	tes[70];
-
-	printf("%d\n", ft_strlcpy(dest, src, 7));
-	printf("%s\n", dest);
-	printf("%d\n", strlcpy(tes, src, 7));
-	printf("%s\n", dest);
-	return (0);
-}
-*/

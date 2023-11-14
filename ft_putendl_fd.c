@@ -17,11 +17,3 @@ void	ft_putendl_fd(char *s, int fd)
 		write(fd, s++, 1);
 	write(fd, "\n", 1);
 }
-/*
-int	main()
-{
-	char *str = "0123456789";
-	ft_putendl_fd(str, 2);
-	return (0);
-}
-*/

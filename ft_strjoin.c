@@ -38,16 +38,3 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	join[i + j] = '\0';
 	return (join);
 }
-
-//int	main(int ac, char **av)
-//{
-//	char	*str;
-//
-//	(void)av;
-//	if (ac == 1)
-//		return (-1);
-////	str = ft_strjoin(av[1], av[2]);
-//	str = ft_strjoin(NULL, NULL);
-//	printf("joined: [%s]\n", str);
-//	free(str);
-//}

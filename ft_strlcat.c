@@ -39,21 +39,3 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	dst[i] = '\0';
 	return (lendst + lensrc);
 }
-
-/*
-#include <string.h>
-#include <stdio.h>
-
-int main(void)
-{
-	char src[] = "my";
-	char dst[] = "test";
-	printf("%i \n", ft_strlcat(dst, src, 9));
-	printf("%s \n", dst);
-
-	char src2[] = "my";
-	char dst2[] = "test";
-	printf("%i \n", strlcat(dst2, src2, 9));
-	printf("%s \n", dst2);
-}
-*/

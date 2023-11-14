@@ -29,16 +29,3 @@ char	*ft_strdup(const char *s)
 	dest[i] = '\0';
 	return (dest);
 }
-
-/*
-int	main(int argc, char **argv)
-{
-	if (argc > 1)
-	{
-		printf("%s\n", strdup(argv[1]));
-		printf("%s\n", ft_strdup(argv[1]));
-	}
-	else
-		printf("Pas d'argument?\n");
-}
-*/

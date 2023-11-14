@@ -17,14 +17,3 @@ void	ft_putstr_fd(char *s, int fd)
 	while (s && *s)
 		write(fd, s++, 1);
 }
-/*
-int	main()
-{
-
-	int fd = open("test.txt", O_WRONLY);
-	char *str = NULL;
-	ft_putstr_fd(str, fd);
-	printf("\n%s\n", str);
-	return (0);
-}
-*/

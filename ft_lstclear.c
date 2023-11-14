@@ -26,8 +26,3 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 	}
 	*lst = NULL;
 }
-//		*lst = tmp;
-/*
- * lst : nod1 nod2 nod3 nod4 nodn
- * 		 tmp2
- * */

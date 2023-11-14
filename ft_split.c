@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: grebrune <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 11:56:26 by grebrune          #+#    #+#             */
-/*   Updated: 2023/11/13 10:04:29 by grebrune         ###   ########.fr       */
+/*   Updated: 2023/11/14 16:18:43 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdlib.h>
 
-void	ft_strncpy(const char *src, char *dest, int n)
+static void	ft_strncpy(const char *src, char *dest, int n)
 {
 	int	i;
 
@@ -24,7 +24,7 @@ void	ft_strncpy(const char *src, char *dest, int n)
 	dest[i] = '\0';
 }
 
-int	ft_countwds(const char *str, char c)
+static int	ft_countwds(const char *str, char c)
 {
 	int	i;
 	int	wds;
@@ -46,22 +46,23 @@ int	ft_countwds(const char *str, char c)
 	return (wds);
 }
 
-char	**ft_clean(char **tab, int x)
+static char	**ft_clean(char **tab, int x)
 {
-	int	i;
-
-	i = 0;
 	if (x == 0)
-		return (tab);
+	{
+		free(tab);
+		return (NULL);
+	}
 	while (0 < x)
 	{
-		free(tab[i]);
 		x--;
+		free(tab[x]);
 	}
-	return (tab);
+	free(tab);
+	return (NULL);
 }
 
-char	**ft_filltab(char const *s, char **tab, char c)
+static char	**ft_filltab(char const *s, char **tab, char c)
 {
 	int	i;
 	int	size;
@@ -78,7 +79,7 @@ char	**ft_filltab(char const *s, char **tab, char c)
 			while (s[i] != c && s[i])
 				i++;
 			tab[x] = malloc(sizeof(char) * (i - size + 1));
-			if (tab == NULL)
+			if (tab[x] == NULL)
 				return (ft_clean(tab, x));
 			ft_strncpy(&s[size], tab[x++], i - size);
 		}
@@ -94,28 +95,13 @@ char	**ft_split(char const *s, char c)
 	int		size;
 	char	**tab;
 
+	if (s == NULL)
+		return (NULL);
 	size = ft_countwds(s, c);
 	tab = malloc(sizeof(char *) * (size + 1));
 	if (tab == NULL)
-		return (ft_clean(tab, 0));
-	ft_filltab(s, tab, c);
+		return (NULL);
+	if (!ft_filltab(s, tab, c))
+		return (NULL);
 	return (tab);
 }
-/*
-#include <stdio.h>
-
-int	main(int ac, char **av)
-{
-	int	i;
-	char	**tab;
-	
-	tab = ft_split(av[1], av[2][0]);
-	ac = 0;
-	i = 0;
-	while (tab[i])
-	{
-		printf("%d =%s\n", i, tab[i]);
-		i++;
-	}
-	return (0);
-}*/
