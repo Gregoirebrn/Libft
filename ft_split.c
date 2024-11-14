@@ -49,18 +49,9 @@ static int	ft_countwds(const char *str, char c)
 
 static char	**ft_clean(char **tab, int x)
 {
-	if (x == 0)
-	{
-		free(tab);
-		return (NULL);
-	}
-	while (0 < x)
-	{
-		x--;
+	while (0 < x--)
 		free(tab[x]);
-	}
-	free(tab);
-	return (NULL);
+	return (free(tab), NULL);
 }
 
 static char	**ft_filltab(char const *s, char **tab, char c)
@@ -70,7 +61,6 @@ static char	**ft_filltab(char const *s, char **tab, char c)
 	int	x;
 
 	x = 0;
-	size = 0;
 	i = 0;
 	while (s[i])
 	{
